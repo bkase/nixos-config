@@ -17,30 +17,32 @@ bindkey "^R" history-incremental-search-backward
 #alias
 alias v='vim'
 alias vi='vim'
-alias sml='rlwrap sml'
-alias sudo='sudo '
-alias vit='vim ~/.todo.txt'
 alias ls='ls --color=auto --group-directories-first'
 alias l='ls'
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
+alias c='clear && screenfetch'
 alias cls='clear && screenfetch && ls'
-alias homeconfig='git --git-dir=$HOME/.homeconfig.git/ --work-tree=$HOME'
-#override gc to awesome git commit offered by scm_breeze
-alias gc='git_add_and_commit'
+alias gc='git commit'
 #add git-paradox
 alias gpdx='git paradox'
 # short git log
 alias wlog='git log --oneline --decorate'
 # git log
 alias gl='git log --decorate'
-# long git log
-alias gl='git log --decorate'
 # rebase the second commit into the initial commit (this isn't straightforward)
 alias grb-first='git_squash_second_with_initial'
 # git-grep
 alias ggp='git grep'
+# git push
+alias gps='git push'
+# git rebase
+alias grb='git rebase'
+# git show
+alias gsh='git show'
+# git show
+alias gd='git diff'
 
 # code
 alias code='nix-shell . --command "USE_NIXSHELL=1 exec zsh; return"'
@@ -104,7 +106,6 @@ screenfetch
 
 #sources
 source "$NIX_USER_PROFILE_DIR/profile/share/zsh/zsh-git-prompt/zshrc.sh"
-source ~/.scm_breeze/scm_breeze.sh # TODO: move this to nix derivation
-alias c='clear && screenfetch' # override `c`
+eval "$(scmpuff init -s)"
 source "$NIX_USER_PROFILE_DIR/profile/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 

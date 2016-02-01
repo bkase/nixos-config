@@ -8,6 +8,8 @@
     zshSyntaxHighlighting = pkgs.callPackage ./custom-packages/zsh-syntax-highlighting.nix {};
 
     zshGitPrompt = pkgs.callPackage ./custom-packages/zsh-git-prompt/default.nix {};
+
+    scmpuff = pkgs.callPackage ./custom-packages/scmpuff.nix {};
   in
   with pkgs; rec {
     vimrcConfig = {
@@ -33,9 +35,9 @@
         python27
         screenfetch
         git
-        ruby
         zshSyntaxHighlighting
         zshGitPrompt
+        scmpuff
       ];
     };
   };

@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, lib } :
+{ stdenv, fetchFromGitHub } :
 
 let
   fromGithub = fetchFromGitHub {
@@ -24,6 +24,6 @@ stdenv.mkDerivation rec {
   meta = {
     description = "Fish shell like syntax highlighting for Zsh.";
     homepage = "https://github.com/zsh-users/zsh-syntax-highlighting";
-    license = lib.licenses.bsd3;
+    license = stdenv.lib.licenses.bsd3;
   };
 }
