@@ -1,4 +1,4 @@
-{}:
+{ rustPlatform }:
 {
   config = ''
     set nocompatible
@@ -259,5 +259,9 @@
 
     " Golang wants REAL TABS
     autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+    " YouCompleteMe's rust completion needs src path
+    " TODO: It would be better if YouCompleteMe or racerd did this automatically
+    let g:ycm_rust_src_path = '${rustPlatform.rustc.src}/src'
   '';
 }

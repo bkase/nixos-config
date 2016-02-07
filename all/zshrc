@@ -105,7 +105,8 @@ cd `cat /tmp/.cwd`
 screenfetch
 
 #sources
-source "$NIX_USER_PROFILE_DIR/profile/share/zsh/zsh-git-prompt/zshrc.sh"
+# TODO: make the contents of this file in nix (no hardcode packages)
+source "/nix/store/jq5jpgxr99szh3s7cp02ir18jb9wy8hn-zsh-git-prompt-b662ac2fc6ad6e0226a0cb535738db721d7945d4/share/zsh/zsh-git-prompt/zshrc.sh"
 eval "$(scmpuff init -s)"
-source "$NIX_USER_PROFILE_DIR/profile/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "/nix/store/0x3nvvbaf46djac8rca7ppql4lyq0j4m-zsh-syntax-highlighting-0.4.1/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 

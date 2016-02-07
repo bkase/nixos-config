@@ -4,6 +4,32 @@
 
 { config, pkgs, ... }:
 
+let
+  racerdRust = pkgs.callPackage ./custom-packages/racerd/default.nix {};
+  zshSyntaxHighlighting = pkgs.callPackage ./custom-packages/zsh-syntax-highlighting.nix {};
+  zshGitPrompt = pkgs.callPackage ./custom-packages/zsh-git-prompt/default.nix {};
+  scmpuff = pkgs.callPackage ./custom-packages/scmpuff.nix {};
+
+  vimrc = pkgs.callPackage ./vimrc.nix {};
+  vimrcConfig = {
+    vam.knownPlugins = pkgs.vimPlugins;
+    vam.pluginDictionaries = [
+      { names = [
+        "vim-addon-nix"
+        "ctrlp"
+        "youcompleteme"
+        "vim-airline"
+        "surround"
+        "Solarized"
+        "The_NERD_Commenter"
+        "rust"
+      ];}
+    ];
+    customRC = vimrc.config;
+  };
+
+  my_vim = pkgs.vim_configurable.customize { name = "vim"; inherit vimrcConfig; };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -27,12 +53,26 @@
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
+  nix.nixPath = [ "/etc/nixos" "nixos-config=/etc/nixos/configuration.nix" ];
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     wget
     curl
     openssh
+    git
+
+    # vim
+    racerdRust
+    my_vim
+
+    # shell
+    python27
+    screenfetch
+    zshSyntaxHighlighting
+    zshGitPrompt
+    scmpuff
   ];
 
   # List services that you want to enable:

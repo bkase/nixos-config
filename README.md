@@ -1,17 +1,14 @@
 # My Work-in-progress NixOS config
 
-I'm attempting a minimal `/etc/nixos/configuration.nix`, with most of
-my environment customizations in the `all` env.
-
-I may decide in the future to put most/all configuration in `/etc/nixos/configuration.nix`.
+`/etc/nixos/configuration.nix` has entire system derived. `all/` formerly had most derivations. Now it only contains a reference to zshrc (which will be moved to `configuration.nix` soon).
 
 ## Custom packages
 
-Custom packages are located in `all/custom-packages`.
+Custom packages are located in `etc/custom-packages`.
 
 ## How to use this repo
 
-Switch to the `nixos-unstable` channel.
+Clone nixpkgs to `/etc/nixos`
 
 `/etc/nixos` files are stored in the `etc` directory.
 
