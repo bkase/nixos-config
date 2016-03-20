@@ -19,6 +19,7 @@ let
         "ctrlp"
         "youcompleteme"
         "vim-airline"
+        "vim-airline-themes"
         "surround"
         "Solarized"
         "The_NERD_Commenter"
