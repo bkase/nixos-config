@@ -70,6 +70,7 @@ in
     # shell
     python27
     screenfetch
+    asciinema
     zshSyntaxHighlighting
     zshGitPrompt
     scmpuff
