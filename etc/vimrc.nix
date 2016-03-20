@@ -263,5 +263,6 @@
     " YouCompleteMe's rust completion needs src path
     " TODO: It would be better if YouCompleteMe or racerd did this automatically
     let g:ycm_rust_src_path = '${rustPlatform.rustc.src}/src'
+    nnoremap <leader>jd :YcmCompleter GoTo<CR>
   '';
 }
