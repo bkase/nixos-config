@@ -94,6 +94,9 @@ in
   # services.xserver.displayManager.kdm.enable = true;
   # services.xserver.desktopManager.kde4.enable = true;
 
+  # virtualisation.docker.enable = true;
+  # virtualisation.docker.storageDriver = "btrfs";
+
   programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
