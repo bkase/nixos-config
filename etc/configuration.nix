@@ -24,6 +24,15 @@ let
         "Solarized"
         "The_NERD_Commenter"
         "rust"
+
+        "neomake"
+        "vimproc"
+        "haskell-vim"
+        "haskellConcealPlus"
+        "ghcmod"
+        "necoGhc"
+        "hoogle"
+        "hlint-refactor-vim"
       ];}
     ];
     customRC = vimrc.config;
