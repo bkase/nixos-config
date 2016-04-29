@@ -71,6 +71,7 @@ in
     wget
     curl
     openssh
+    mosh
     git
 
     # vim
@@ -79,6 +80,7 @@ in
 
     # shell
     python27
+    tmux
     screenfetch
     asciinema
     zshSyntaxHighlighting
