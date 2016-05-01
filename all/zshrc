@@ -33,15 +33,12 @@ alias wlog='git log --oneline --decorate'
 alias gl='git log --decorate'
 # rebase the second commit into the initial commit (this isn't straightforward)
 alias grb-first='git_squash_second_with_initial'
-# git-grep
 alias ggp='git grep'
-# git push
+alias gcob='git checkout -b'
 alias gps='git push'
-# git rebase
 alias grb='git rebase'
-# git show
 alias gsh='git show'
-# git show
+alias gcp='git cherry-pick'
 alias gd='git diff'
 
 # code
