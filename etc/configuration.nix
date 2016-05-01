@@ -27,12 +27,12 @@ let
 
         "neomake"
         "vimproc"
-        "haskell-vim"
+        "haskell"
         "haskellConcealPlus"
         "ghcmod"
         "necoGhc"
         "hoogle"
-        "hlint-refactor-vim"
+        "hlint-refactor"
       ];}
     ];
     customRC = vimrc.config;
