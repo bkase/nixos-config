@@ -40,6 +40,7 @@ alias grb='git rebase'
 alias gsh='git show'
 alias gcp='git cherry-pick'
 alias gd='git diff'
+alias gf='git fetch'
 
 # code
 alias code='nix-shell . --command "USE_NIXSHELL=1 exec zsh; return"'
