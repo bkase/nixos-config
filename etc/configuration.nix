@@ -26,7 +26,7 @@ let
 
         "neomake"
         "vimproc"
-        "haskell"
+        "haskell-vim"
         "haskellConcealPlus"
         "ghcmod"
         "necoGhc"
