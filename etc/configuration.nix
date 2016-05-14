@@ -5,7 +5,6 @@
 { config, pkgs, ... }:
 
 let
-  racerdRust = pkgs.callPackage ./custom-packages/racerd/default.nix {};
   zshSyntaxHighlighting = pkgs.callPackage ./custom-packages/zsh-syntax-highlighting.nix {};
   zshGitPrompt = pkgs.callPackage ./custom-packages/zsh-git-prompt/default.nix {};
   scmpuff = pkgs.callPackage ./custom-packages/scmpuff.nix {};
