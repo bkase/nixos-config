@@ -22,7 +22,7 @@ let
         "surround"
         "Solarized"
         "The_NERD_Commenter"
-        "rust"
+        "rust-vim"
 
         "neomake"
         "vimproc"
