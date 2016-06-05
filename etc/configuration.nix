@@ -24,6 +24,10 @@ let
         "The_NERD_Commenter"
         "rust-vim"
 
+        "psc-ide-vim"
+        "purescript-vim"
+        "syntastic"
+
         "neomake"
         "vimproc"
         "haskell-vim"
