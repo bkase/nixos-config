@@ -29,11 +29,11 @@
     set wildmenu
     set wildmode=list:longest
     set ttyfast
+    set nopaste
     set cursorline
     set laststatus=2
     set relativenumber
     set undofile
-    set nopaste
 
     " show commands
     set showcmd
@@ -172,12 +172,8 @@
     autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey   ctermbg=darkgrey
     autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey ctermbg=grey
 
-    "tagbar config
-    nmap <leader>t :TagbarToggle<CR>
-
-    "fuzzyfinder config
-    nnoremap <leader>f :FufFile<CR>
-    nnoremap <leader>b :FufBuffer<CR>
+    " HACK: fix broken paste by making it explicit
+    nnoremap p ""p
 
     "LaTeX
     "Compile to pdf
@@ -226,6 +222,17 @@
     "augroup END
 
     let g:javascript_conceal=1
+    let g:javascript_plugin_jsdoc = 1
+    let g:javascript_plugin_flow = 1
+    let g:javascript_conceal_function       = "ƒ"
+    let g:javascript_conceal_null           = "ø"
+    let g:javascript_conceal_this           = "@"
+    let g:javascript_conceal_return         = "⇚"
+    let g:javascript_conceal_undefined      = "¿"
+    let g:javascript_conceal_NaN            = "ℕ"
+    let g:javascript_conceal_prototype      = "¶"
+    let g:javascript_conceal_static         = "•"
+    let g:javascript_conceal_super          = "Ω"
 
     " better markdown
     augroup markdown
@@ -233,10 +240,17 @@
         au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
     augroup END
 
-    " Ctrl-P
+    " Find stuff
     nnoremap gt :bnext<CR>
     nnoremap gT :bprevious<CR>
-    nnoremap gd :BD<CR>
+    nnoremap <c-p> :Files<CR>
+    nnoremap <leader>f :Files<CR>
+    nnoremap <leader>b :Buffers<CR>
+    nnoremap <leader>/ :BLines<CR>
+    nnoremap <leader>r :GFiles?<CR>
+    nnoremap <leader>g :Ag<CR>
+    let g_fzf_layout = { 'down': '~40%' }
+    set rtp+=~/.fzf
 
     " Golang wants REAL TABS
     autocmd FileType go autocmd BufWritePre <buffer> Fmt
@@ -409,7 +423,5 @@
     nnoremap <silent> <leader>hz :HoogleClose<CR>
 
     " }}}
-
-    let g:psc_ide_syntastic_mode = 1
   '';
 }
