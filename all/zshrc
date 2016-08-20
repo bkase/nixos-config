@@ -15,11 +15,7 @@ fi
 bindkey "^R" history-incremental-search-backward
 
 #alias
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias archeyCmd='SHELL=zsh archey'
-else
-  alias archeyCmd='screenfetch'
-fi
+alias archeyNix='SHELL=zsh archey'
 alias v='vim'
 alias vi='vim'
 alias ls='ls --color=auto --group-directories-first'
@@ -27,8 +23,8 @@ alias l='ls'
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
-alias c='clear && archeyCmd'
-alias cls='clear && archeyCmd && ls'
+alias c='clear && archeyNix'
+alias cls='clear && archeyNix && ls'
 alias gc='git commit'
 #add git-paradox
 alias gpdx='git paradox'
@@ -97,7 +93,7 @@ export LS_COLORS
 touch /tmp/.cwd
 cd `cat /tmp/.cwd`
 
-archeyCmd
+archeyNix
 
 #sources
 # TODO: make the contents of this file in nix (no hardcode packages)
@@ -150,20 +146,24 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
-# FASD + fzf do
+# (FASD + fzf || find . + fzf) do
 # $1 = flag for files (-f) or directories (-d)
 # $2 = format string for command to run
 # $3 = any arguments to fasd directly
 _fasd_do() {
   local res
-  res="$(fasd -Rl $1 "$3" | fzf -1 -0 --no-sort +m)" && $(printf "$2" "$res") || return 1
+  res=$(fasd -Rl -$1 "$3" | fzf -1 -0 --no-sort +m || find . -type $1 -print0 | grep -FzZ '*'"$3"'*' | fzf +m) && $(printf "$2" "$res") || return 1
 }
 
 j() {
-  _fasd_do -d "cd %s" "$*"
+  _fasd_do d "cd %s" "$*"
 }
 
 vf() {
-  _fasd_do -f "vim %s" "$*"
+  _fasd_do f "vim %s" "$*"
+}
+
+vff() {
+  res=$(find . -type f -print0 -name '*'"$1"'*' | fzf +m) && vim "$res" || return 1
 }
 

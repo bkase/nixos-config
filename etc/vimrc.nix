@@ -234,11 +234,12 @@
     let g:javascript_conceal_static         = "•"
     let g:javascript_conceal_super          = "Ω"
 
-    " better markdown
-    augroup markdown
-        au!
-        au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-    augroup END
+    " Fixup js config
+    let g:jsx_ext_required = 0
+    let g:neomake_javascript_enabled_makers = ['eslint']
+    autocmd! BufWritePost,BufEnter * Neomake
+    " because vim-javascript clobbers the completion
+    autocmd! BufRead *.js set omnifunc=flowcomplete#Complete
 
     " Find stuff
     nnoremap gt :bnext<CR>
