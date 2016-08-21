@@ -241,6 +241,21 @@
     " because vim-javascript clobbers the completion
     autocmd! BufRead *.js set omnifunc=flowcomplete#Complete
 
+    " Ocaml and Reason
+    if !empty(system('which opam'))
+      " Merlin plugin
+      let s:ocamlmerlin=system('stripped-opam-config-var-share.sh') . "/merlin"
+      execute "set rtp+=".s:ocamlmerlin."/vim"
+      execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+      let g:syntastic_ocaml_checkers=['merlin']
+
+      " Reason plugin which uses Merlin
+      let s:reasondir=system('stripped-opam-config-var-share.sh') . "/reason"
+      execute "set rtp+=".s:reasondir."/editorSupport/VimReason"
+      let g:syntastic_reason_checkers=['merlin']
+    else
+    endif
+
     " Find stuff
     nnoremap gt :bnext<CR>
     nnoremap gT :bprevious<CR>
