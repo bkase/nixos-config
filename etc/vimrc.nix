@@ -237,7 +237,7 @@
     " Fixup js config
     let g:jsx_ext_required = 0
     let g:neomake_javascript_enabled_makers = ['eslint']
-    autocmd! BufWritePost,BufEnter * Neomake
+    autocmd! BufWritePost * Neomake
     " because vim-javascript clobbers the completion
     autocmd! BufRead *.js set omnifunc=flowcomplete#Complete
 

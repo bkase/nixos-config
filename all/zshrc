@@ -97,9 +97,9 @@ archeyNix
 
 #sources
 # TODO: make the contents of this file in nix (no hardcode packages)
-source "/nix/store/c7znyv9jyr8smwfzsba3vqfacmwk2z3d-zsh-git-prompt-b662ac2fc6ad6e0226a0cb535738db721d7945d4/share/zsh/zsh-git-prompt/zshrc.sh"
+source "/nix/store/fa5rk287hqryilp0zilbb4kz0hb0w988-zsh-git-prompt-b662ac2fc6ad6e0226a0cb535738db721d7945d4/share/zsh/zsh-git-prompt/zshrc.sh"
 eval "$(scmpuff init -s)"
-source "/nix/store/k9qmviilnxxngngjmrczy00734k144cj-zsh-syntax-highlighting-0.4.1/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "/nix/store/9rnw7n6mick7jsy4jzr9zpcg5k5dkrbw-zsh-syntax-highlighting-0.4.1/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 PATH=$PATH:~/bin
 
